@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script>
+</head>
+<body>
+<input type="text" id="name" value="" onchange="findGroup()"/>
+<p id="a"></p>
+<script>
+    function findGroup() {
+        const name = document.getElementById("name").value;
+        const s1 = name + "2425"
+        console.log(s1)
+        const s2 = md5(s1);
+        console.log("md5:" + s2)
+        let tmp = ""
+        for (let i = s2.length - 1; i > 0; i--) {
+            tmp = s2[i]
+            if (isNaN(s2[i])) {
+                break;
+            }
+        }
+        const lastLetter = tmp
+        console.log(lastLetter)
+        const l1 = parseInt(lastLetter, 16);
+        console.log("l1:" + l1)
+        const l2 = l1 + 5
+        console.log("l2:" + l2)
+        const l3 = l2 % 5
+        console.log("l3:" + l3)
+        const l4 = l3 + 1
+        a.innerText = l4
+    }
+
+
+</script>
